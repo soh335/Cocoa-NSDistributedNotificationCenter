@@ -1,0 +1,16 @@
+NAME
+    Cocoa::NSDistributedNotificationCenter - Perl interface for
+    NSDistributedNotificationCenter
+
+SYNOPSIS
+      use Cocoa::NSDistributedNotificationCenter;
+      use Cocoa::EventLoop;
+
+      my $ns_center = Cocoa::NSDistributedNotificationCenter->new;
+      $ns_center->listen('com.apple.iTunes.playerInfo', sub {
+          my $info = shift;
+          warn $info->{Artist};
+      });
+
+      Cocoa::EventLoop->run;
+
